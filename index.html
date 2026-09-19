@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta property="og:title" content="Kishan Rajyaguru | Senior Backend Developer">
+<meta property="og:description" content="Senior Backend Developer with 7+ years of experience in PHP, Laravel, Symfony, MySQL, REST APIs and AWS.">
+<meta property="og:url" content="https://kishanrajyaguru.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://kishanrajyaguru.github.io/preview.png">
+<title>Kishan Rajyaguru — Backend Engineer</title>
+<meta name="description" content="Kishan Rajyaguru — Senior PHP and Backend Developer, 7+ years experience.">
+<style>
+:root{
+ --bg:#030508;--bg2:#070b10;--panel:#090e14;--panel2:#0d141b;
+ --line:#17212b;--text:#e9f1f4;--muted:#71808b;
+ --green:#55f2a8;--cyan:#4bdcff;--orange:#ff7a30;--purple:#9d7cff;
+ --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+ --sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:var(--sans);color:var(--text);background:
+ radial-gradient(700px 500px at 80% 15%,rgba(75,220,255,.065),transparent 65%),
+ radial-gradient(600px 500px at 20% 80%,rgba(85,242,168,.045),transparent 65%),var(--bg);
+ overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.18;
+ background-image:linear-gradient(rgba(75,220,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(75,220,255,.055) 1px,transparent 1px);
+ background-size:45px 45px}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.018;
+ background:repeating-linear-gradient(0deg,#fff 0,#fff 1px,transparent 1px,transparent 4px);mix-blend-mode:screen}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.shell{width:min(1280px,calc(100% - 34px));margin:auto}
+.mono{font-family:var(--mono);letter-spacing:.13em;text-transform:uppercase}
+.topbar{background:radial-gradient(700px 500px at 80% 15%,rgba(75,220,255,.065),transparent 65%),
+ radial-gradient(600px 500px at 20% 80%,rgba(85,242,168,.045),transparent 65%),var(--bg);opacity:0.8;position:sticky;top:0;height:62px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:-.04em}
+.brand-mark{width:25px;height:25px;border:1px solid var(--green);display:grid;place-items:center;color:var(--green);font:11px var(--mono);box-shadow:0 0 18px rgba(85,242,168,.12)}
+.brand span{color:var(--green)}
+.top-status{font:8px var(--mono);color:#596a74;display:flex;gap:8px;align-items:center}
+.top-status i{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+
+.layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 62px)}
+.sidebar{border-right:1px solid var(--line);padding:35px 18px 35px 0;position:sticky;top:62px;height:calc(100vh - 62px)}
+.side-title{font:8px var(--mono);color:#4e5d67;margin:0 0 18px 11px}
+.side-nav{display:grid;gap:4px}
+.side-nav a{display:grid;grid-template-columns:25px 1fr;align-items:center;padding:12px 10px;border-left:2px solid transparent;color:#64727d;font:9px var(--mono);transition:.2s}
+.side-nav a b{color:#35434c;font-weight:400}
+.side-nav a:hover,.side-nav a.active{background:#0a1116;color:var(--text);border-left-color:var(--green)}
+.side-nav a.active b{color:var(--green)}
+.side-foot{position:absolute;bottom:30px;left:0;color:#35434c;font:7px var(--mono);line-height:1.8}
+
+main{min-width:0}
+section{padding:70px 55px;border-bottom:1px solid var(--line)}
+.hero{min-height:calc(100vh - 62px);display:grid;grid-template-columns:1.15fr .85fr;gap:55px;align-items:center;padding-top:75px}
+.prompt{color:var(--green);font:9px var(--mono);margin-bottom:24px}
+.prompt:before{content:"> ";color:#32434b}
+.hero h1{font-size:clamp(62px,7.2vw,115px);line-height:.84;letter-spacing:-.085em;max-width:800px}
+.hero h1 .accent{color:var(--green)}
+.hero h1 .thin{font-weight:400;color:#697781}
+.hero-copy{max-width:680px;color:#8997a0;font-size:15px;line-height:1.85;margin:28px 0}
+.hero-copy strong{color:#dfe8eb}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.btn{border:1px solid var(--line);padding:12px 14px;border-radius:5px;font:9px var(--mono);color:#aab7bd;transition:.2s;background:#080d12}
+.btn:hover{transform:translateY(-2px);border-color:#33424c;color:#fff}
+.btn.primary{background:var(--green);color:#031008;border-color:var(--green);font-weight:800}
+.btn.blue{color:var(--cyan);border-color:rgba(75,220,255,.25)}
+
+.terminal{border:1px solid #1b2a32;background:#05090d;border-radius:8px;box-shadow:0 35px 100px rgba(0,0,0,.55);overflow:hidden}
+.term-head{height:38px;border-bottom:1px solid #162029;display:flex;align-items:center;gap:6px;padding:0 12px}
+.term-dot{width:7px;height:7px;border-radius:50%;background:#2c3a42}
+.term-name{margin-left:7px;color:#52626c;font:7px var(--mono)}
+.term-body{padding:24px 22px;font:11px/2 var(--mono);color:#657780;min-height:385px}
+.term-line{display:flex;gap:12px}.term-line .num{color:#293941;min-width:18px;text-align:right}
+.term-line .code{color:#91a1a8}.term-line .g{color:var(--green)}.term-line .c{color:var(--cyan)}.term-line .o{color:var(--orange)}
+.avatar-mini{margin:18px 0;border:1px solid #18252d;border-radius:5px;overflow:hidden;height:150px;background:#091016}
+.avatar-mini img{width:100%;height:100%;object-fit:contain;object-position:center bottom}
+
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:34px}
+.section-label{font:8px var(--mono);color:var(--green);margin-bottom:12px}
+h2{font-size:clamp(42px,5vw,70px);line-height:.88;letter-spacing:-.07em}
+.intro{max-width:470px;color:#697983;font-size:12px;line-height:1.8}
+
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.metric{padding:23px;border:1px solid var(--line);background:#080d12;min-height:125px}
+.metric strong{font-size:39px;letter-spacing:-.06em;color:#eaf4f4}
+.metric span{display:block;color:#566670;font:7px var(--mono);margin-top:7px}
+.metric:first-child strong{color:var(--green)}
+
+.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.panel{border:1px solid var(--line);background:#080d12;padding:28px}
+.panel h3{font-size:18px;margin-bottom:13px}
+.panel p{color:#7f8e97;font-size:12px;line-height:1.85}
+.fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:20px}
+.fact{padding:15px;background:#05090d;border:1px solid #131e25}
+.fact b{font-size:21px;display:block}.fact span{color:#53636d;font:7px var(--mono)}
+
+.expertise{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.expert{border:1px solid var(--line);padding:24px;background:#080d12;min-height:205px;position:relative;overflow:hidden}
+.expert:before{content:"";position:absolute;right:-50px;bottom:-50px;width:120px;height:120px;border-radius:50%;background:var(--glow);filter:blur(38px);opacity:.12}
+.expert .num{font:8px var(--mono);color:#52636d}.expert h3{font-size:19px;margin:34px 0 10px}.expert p{font-size:11px;line-height:1.75;color:#71818a}
+
+.role{display:grid;grid-template-columns:170px 1fr;gap:35px;padding:28px 0;border-bottom:1px solid var(--line)}
+.role-date{font:8px/1.8 var(--mono);color:#52616a}
+.role h3{font-size:23px;letter-spacing:-.04em}.company{font:9px var(--mono);color:var(--green);margin:5px 0 14px}
+.role ul{padding-left:18px;color:#788890;font-size:12px;line-height:1.8}.role li{margin:4px 0}
+
+.case-list{display:grid;gap:10px}
+.case{border:1px solid var(--line);background:#080d12}
+.case-top{display:grid;grid-template-columns:80px 1fr auto;gap:20px;align-items:start;padding:27px}
+.case-no{font:11px var(--mono);color:var(--green)}
+.case h3{font-size:28px;letter-spacing:-.05em}.case-type{font:7px var(--mono);color:#56656f;padding-top:5px}
+.case-content{padding:0 27px 27px 127px}
+.case-content p{color:#7d8b94;font-size:12px;line-height:1.8;max-width:800px}
+.detail-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:20px}
+.detail{padding:12px;border:1px solid #151f26;background:#05090d}
+.detail b{display:block;font:7px var(--mono);color:#4f616b;margin-bottom:6px}.detail span{font-size:10px;color:#aab5ba;line-height:1.5}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:16px}.tag{padding:6px 7px;border:1px solid #18252c;color:#657780;font:7px var(--mono)}
+
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.skill{padding:20px;border:1px solid var(--line);background:#080d12}
+.skill h3{font:8px var(--mono);color:#667782;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}.chip{padding:6px 7px;background:#05090d;border:1px solid #16222a;color:#9aa8ae;font:8px var(--mono)}
+
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.flow div{border:1px solid var(--line);background:#080d12;padding:23px;min-height:150px}
+.flow b{font:8px var(--mono);color:var(--green)}.flow p{color:#71818a;font-size:11px;line-height:1.7;margin-top:22px}
+
+.edu,.cert{border:1px solid var(--line);background:#080d12;padding:22px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.edu .year,.cert .year{font:8px var(--mono);color:var(--orange)}
+.edu h3,.cert h3{font-size:18px;margin:13px 0 6px}.edu p,.cert p{font-size:11px;color:#72818a;line-height:1.6}
+
+.contact{border:1px solid #22313a;background:linear-gradient(120deg,rgba(85,242,168,.07),rgba(75,220,255,.035),rgba(255,122,48,.04));padding:48px}
+.contact h2{max-width:800px}.contact p{max-width:680px;color:#7f8e97;font-size:13px;line-height:1.8;margin:18px 0 25px}
+.contact-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}.contact-links a{font:8px var(--mono);color:#6e7e87;border:1px solid var(--line);padding:9px 11px}
+
+footer{padding:60px 0 0px;display:flex;justify-content:space-between;color:#3f4e57;font:7px var(--mono)}
+.reveal{opacity:0;transform:translateY(16px);transition:.65s ease}.reveal.show{opacity:1;transform:none}
+#progress{position:fixed;top:0;left:0;width:0;height:2px;background:var(--green);z-index:1000;box-shadow:0 0 12px var(--green)}
+
+@media(max-width:950px){
+  main section{scroll-margin-top:74px}
+ .layout{display:block}.sidebar{display:none}
+ section{padding:85px 0}.hero{grid-template-columns:1fr;padding-top:75px}
+ .metrics{grid-template-columns:1fr 1fr}.profile-grid{grid-template-columns:1fr}
+ .expertise{grid-template-columns:1fr 1fr}.skills{grid-template-columns:1fr 1fr}
+ .flow{grid-template-columns:1fr 1fr}.detail-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:650px){
+ .shell{width:calc(100% - 24px)}.top-status{display:none}
+ .hero{padding-top:65px;gap:35px}section{padding:72px 0}
+ h1{font-size:clamp(52px,15vw,75px)}.hero-copy{font-size:13px}
+ .actions{display:grid;grid-template-columns:1fr 1fr}.btn{padding:12px 7px;font-size:8px}
+ .term-body{min-height:315px;padding:18px 13px;font-size:9px}.avatar-mini{height:120px}
+ .metrics,.expertise,.skills,.flow,.two{grid-template-columns:1fr}
+ .section-head{display:block}.intro{margin-top:16px}
+ .role{grid-template-columns:1fr;gap:7px}.case-top{grid-template-columns:45px 1fr;gap:10px}.case-type{grid-column:2}
+ .case h3{font-size:22px}.case-content{padding:0 20px 22px 20px}
+ .detail-grid{grid-template-columns:1fr 1fr}
+ .contact{padding:32px 21px}.contact h2{font-size:45px}
+ footer{display:block}footer span{display:block;margin-top:8px}
+}
+
+/* Mobile navigation */
+.mobile-menu-btn{
+  display:none;
+  width:40px;
+  height:40px;
+  margin-left:auto;
+  padding:9px;
+  border:1px solid #1d2a32;
+  border-radius:6px;
+  background:#070c11;
+  cursor:pointer;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:5px;
+  color:var(--green);
+}
+.mobile-menu-btn span{
+  display:block;
+  width:19px;
+  height:2px;
+  background:currentColor;
+  border-radius:2px;
+  transition:transform .2s ease,opacity .2s ease;
+}
+.mobile-menu-panel{
+  display:none;
+  position:absolute;
+  top:70px;
+  left:0;
+  right:0;
+  padding:8px;
+  border:1px solid #1b2a32;
+  border-radius:8px;
+  background:rgba(5,9,13,.98);
+  box-shadow:0 25px 70px rgba(0,0,0,.65);
+  z-index:9999;
+}
+header.mobile-open .mobile-menu-panel{display:block!important;visibility:visible;opacity:1}
+.mobile-menu-label{
+  padding:10px 11px 8px;
+  color:#46565f;
+  font-size:7px;
+}
+.mobile-menu-panel a{
+  display:grid;
+  grid-template-columns:28px 1fr;
+  align-items:center;
+  gap:5px;
+  padding:13px 11px;
+  border-radius:5px;
+  color:#82919a;
+  font:9px var(--mono);
+}
+.mobile-menu-panel a b{
+  color:#40515a;
+  font-weight:400;
+}
+.mobile-menu-panel a:hover,
+.mobile-menu-panel a.active{
+  background:#0d151b;
+  color:#f0f5f6;
+}
+.mobile-menu-panel a.active b{color:var(--green)}
+header.mobile-open .mobile-menu-btn span:nth-child(1){
+  transform:translateY(7px) rotate(45deg);
+}
+header.mobile-open .mobile-menu-btn span:nth-child(2){opacity:0}
+header.mobile-open .mobile-menu-btn span:nth-child(3){
+  transform:translateY(-7px) rotate(-45deg);
+}
+
+@media(max-width:950px){
+  main section{scroll-margin-top:74px}
+  .topbar{position:sticky;top:0;z-index:1;opacity:1;height:62px;background:rgba(3,5,8,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+  .mobile-menu-btn{display:flex}
+  .mobile-menu-panel{top:62px}
+}
+@media(min-width:951px){
+  .mobile-menu-panel{display:none!important}
+}
+
+
+/* Readability enhancement */
+body{font-size:16px}
+.top-status{font-size:10px}
+.side-title{font-size:10px}
+.side-nav a{font-size:11px}
+.side-foot{font-size:10px}
+.prompt{font-size:11px}
+.hero-copy{font-size:17px;line-height:1.9}
+.btn{font-size:10px}
+.term-body{font-size:12px;line-height:2.05}
+.term-name{font-size:10px}
+.section-label{font-size:10px}
+.intro{font-size:14px;line-height:1.85}
+.metric span{font-size:10px}
+.panel p{font-size:14px;line-height:1.9}
+.fact span{font-size:10px}
+.expert .num{font-size:10px}
+.expert p{font-size:13px;line-height:1.85}
+.role-date{font-size:12px;line-height:1.9}
+.company{font-size:12px}
+.role ul{font-size:14px;line-height:1.9}
+.case-type{font-size:10px}
+.case-content p{font-size:13px;line-height:1.9}
+.detail b{font-size:10px}
+.detail span{font-size:11px;line-height:1.6}
+.tag{font-size:10px}
+.skill h3{font-size:10px}
+.chip{font-size:10px}
+.flow b{font-size:10px}
+.flow p{font-size:13px;line-height:1.8}
+.edu .year,.cert .year{font-size:10px}
+.edu p,.cert p{font-size:12px;line-height:1.75}
+.contact p{font-size:14px;line-height:1.9}
+.contact-links a{font-size:10px}
+footer{font-size:10px}
+
+@media(max-width:650px){
+  .top-status{display:none}
+  .prompt{font-size:10px}
+  .hero-copy{font-size:15px;line-height:1.85}
+  .term-body{font-size:10px;line-height:1.95}
+  .section-label{font-size:10px}
+  .intro{font-size:13px;line-height:1.8}
+  .metric span{font-size:8px}
+  .panel p{font-size:13px}
+  .expert p{font-size:12px}
+  .role ul{font-size:13px}
+  .case-content p{font-size:12px}
+  .detail span{font-size:10px}
+  .flow p{font-size:12px}
+  .edu p,.cert p{font-size:11px}
+  .contact p{font-size:13px}
+}
+
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="shell">
+ <header class="topbar">
+  <a class="brand" href="#home"><span class="brand-mark">K</span>K<span>.</span>RAJYAGURU</a>
+  <div class="top-status"><i></i> SYSTEM ONLINE · REMOTE BACKEND ENGINEER</div>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu-panel" id="mobileMenuPanel">
+    <div class="mobile-menu-label mono">NAVIGATION / MENU</div>
+    <a href="#home"><b>00</b> HOME</a>
+    <a href="#profile"><b>01</b> PROFILE</a>
+    <a href="#expertise"><b>02</b> EXPERTISE</a>
+    <a href="#experience"><b>03</b> EXPERIENCE</a>
+    <a href="#projects"><b>04</b> PROJECTS</a>
+    <a href="#skills"><b>05</b> TECH STACK</a>
+    <a href="#workflow"><b>06</b> WORKFLOW</a>
+    <a href="#education"><b>07</b> EDUCATION</a>
+    <a href="#contact"><b>08</b> CONTACT</a>
+  </div>
+ </header>
+
+ <div class="layout">
+  <aside class="sidebar">
+   <nav class="side-nav">
+    <a href="#home" class="active"><b>00</b>HOME</a>
+    <a href="#profile"><b>01</b>PROFILE</a>
+    <a href="#expertise"><b>02</b>EXPERTISE</a>
+    <a href="#experience"><b>03</b>EXPERIENCE</a>
+    <a href="#projects"><b>04</b>PROJECTS</a>
+    <a href="#skills"><b>05</b>TECH STACK</a>
+    <a href="#workflow"><b>06</b>WORKFLOW</a>
+    <a href="#education"><b>07</b>EDUCATION</a>
+    <a href="#contact"><b>08</b>CONTACT</a>
+   </nav>
+   <div class="side-foot">KISHAN RAJYAGURU<br>BHAVNAGAR · INDIA<br>PHP / LARAVEL / AWS</div>
+  </aside>
+
+  <main>
+   <section id="home" class="hero">
+    <div>
+     <div class="prompt">AVAILABLE FOR OPPORTUNITIES</div>
+     <h1>Backend<br><span class="accent">engineering</span><br><span class="thin">that ships.</span></h1>
+     <p class="hero-copy">Senior PHP / Backend Developer with <strong>7+ years</strong> of experience building production systems with PHP, Laravel, Symfony, MySQL, REST APIs, AWS and third-party integrations.</p>
+     <div class="actions">
+      <a class="btn primary" href="#projects">EXPLORE PROJECTS ↓</a>
+      <a class="btn blue" href="https://drive.google.com/file/d/1wHIQb9zdgtZPsKjp7t7ixXYEaKMEq6L0/view?usp=drive_link" target="_blank">RESUME ↓</a>
+      <a class="btn blue" href="mailto:kishanrajyaguru88@gmail.com">EMAIL ME ↗</a>
+      <a class="btn blue" href="https://www.linkedin.com/in/kishan-rajyaguru-246005114" target="_blank">LINKEDIN ↗</a>
+      <a class="btn blue" href="https://wa.me/918238914003?text=Hi%20Kishan%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20job%20opportunity%20with%20you." target="_blank">WHATSAPP ↗</a>
+     </div>
+    </div>
+    <div class="terminal">
+     <div class="term-head"><i class="term-dot"></i><i class="term-dot"></i><i class="term-dot"></i><span class="term-name">kishan@backend:~/profile</span></div>
+     <div class="term-body">
+      <div class="term-line"><span class="num">01</span><span class="code"><span class="g">const</span> developer = {</span></div>
+      <div class="term-line"><span class="num">02</span><span class="code">&nbsp;&nbsp;name: <span class="o">'Kishan Rajyaguru'</span>,</span></div>
+      <div class="term-line"><span class="num">03</span><span class="code">&nbsp;&nbsp;role: <span class="o">'Senior Backend Developer'</span>,</span></div>
+      <div class="term-line"><span class="num">04</span><span class="code">&nbsp;&nbsp;experience: <span class="c">'7+ years'</span>,</span></div>
+      <div class="term-line"><span class="num">05</span><span class="code">&nbsp;&nbsp;focus: [<span class="o">'PHP'</span>, <span class="o">'Laravel'</span>, <span class="o">'APIs'</span>],</span></div>
+      <div class="term-line"><span class="num">06</span><span class="code">&nbsp;&nbsp;cloud: [<span class="o">'AWS'</span>, <span class="o">'Lambda'</span>, <span class="o">'SQS'</span>],</span></div>
+      <div class="term-line"><span class="num">07</span><span class="code">&nbsp;&nbsp;location: <span class="o">'India'</span></span></div>
+      <div class="term-line"><span class="num">08</span><span class="code">};</span></div>
+      <div class="avatar-mini"><img src="assets/profile.png" alt="Kishan Rajyaguru"></div>
+      <div class="term-line"><span class="num">09</span><span class="code"><span class="g">status</span> → <span class="c">OPEN_TO_WORK</span></span></div>
+     </div>
+    </div>
+   </section>
+
+   <section id="profile">
+    <div class="section-head reveal"><div><div class="section-label">01 / PROFILE</div><h2>Built around<br>the backend.</h2></div><p class="intro">A developer profile centered on backend architecture, API development, integrations, databases, production support and end-to-end delivery.</p></div>
+    <div class="metrics reveal">
+     <div class="metric"><strong>7+</strong><span>YEARS EXPERIENCE</span></div>
+     <div class="metric"><strong>10+</strong><span>PROJECTS</span></div>
+     <div class="metric"><strong>2–3</strong><span>SOLO PROJECT DELIVERY</span></div>
+     <div class="metric"><strong>8–10</strong><span>APIS / SPRINT</span></div>
+    </div>
+    <div class="profile-grid" style="margin-top:8px">
+     <div class="panel reveal"><h3>Professional Summary</h3><p>Senior Backend Developer with 7+ years of experience building web applications and REST APIs using PHP, Laravel, Symfony and MySQL. Experience across enterprise distribution, e-commerce, telecom and content platforms, including backend architecture, database design, API development, performance optimization, AWS integrations and third-party systems.</p><p style="margin-top:12px">Worked with frontend, product, QA and support teams in Agile/Scrum environments and delivered features from requirements through development, testing and production.</p></div>
+     <div class="panel reveal"><h3>Career Snapshot</h3><div class="fact-grid"><div class="fact"><b>PHP</b><span>Primary backend</span></div><div class="fact"><b>API</b><span>REST / integrations</span></div><div class="fact"><b>AWS</b><span>Cloud services</span></div><div class="fact"><b>DB</b><span>MySQL / MongoDB</span></div></div></div>
+    </div>
+   </section>
+
+   <section id="expertise">
+    <div class="section-head reveal"><div><div class="section-label">02 / EXPERTISE</div><h2>What I<br>build.</h2></div><p class="intro">Core engineering areas directly represented in the resume and project history.</p></div>
+    <div class="expertise">
+     <div class="expert reveal" style="--glow:#55f2a8"><div class="num">01 / BACKEND</div><h3>PHP / Laravel / Symfony</h3><p>Production backend development using PHP, Laravel and Symfony with OOP, MVC, SOLID and design patterns.</p></div>
+     <div class="expert reveal" style="--glow:#4bdcff"><div class="num">02 / API</div><h3>REST APIs</h3><p>API design and development covering authentication, validation, transformation, error handling and client integration.</p></div>
+     <div class="expert reveal" style="--glow:#ff7a30"><div class="num">03 / DATA</div><h3>MySQL / MongoDB</h3><p>Database design, query work, troubleshooting and application/database performance optimization.</p></div>
+     <div class="expert reveal" style="--glow:#9d7cff"><div class="num">04 / CLOUD</div><h3>AWS</h3><p>Lambda, API Gateway, SQS, SNS, S3 and CloudWatch used for application and integration workflows.</p></div>
+     <div class="expert reveal" style="--glow:#55f2a8"><div class="num">05 / INTEGRATION</div><h3>NetSuite & Third Party</h3><p>Bidirectional NetSuite synchronization and third-party API integrations with validation and data transformation.</p></div>
+     <div class="expert reveal" style="--glow:#4bdcff"><div class="num">06 / DELIVERY</div><h3>Production Engineering</h3><p>Debugging, code review, mentoring, production support, requirements translation and Agile/Scrum delivery.</p></div>
+    </div>
+   </section>
+
+   <section id="experience">
+    <div class="section-head reveal"><div><div class="section-label">03 / EXPERIENCE</div><h2>Career<br>log.</h2></div><p class="intro">Roles, responsibilities and delivery scope from the current resume.</p></div>
+    <div>
+     <article class="role reveal"><div class="role-date">APR 2026 — AUG 2026<br>REMOTE</div><div><h3>Senior Software Engineer</h3><div class="company">FREELANCE (REMOTE)</div><ul><li>Built backend functionality using PHP, Laravel, Symfony and MySQL.</li><li>Developed REST APIs and third-party integrations covering authentication, validation, transformation and error handling.</li><li>Investigated PHP/MySQL issues including application and database performance problems.</li><li>Delivered features from requirements through database/API development, testing, Git and deployment.</li></ul></div></article>
+     <article class="role reveal"><div class="role-date">AUG 2022 — FEB 2026<br>AHMEDABAD / REMOTE</div><div><h3>Senior Software Engineer</h3><div class="company">GROWEXX (REMOTE)</div><ul><li>Worked on an enterprise distribution platform covering sales, purchasing, invoicing, reporting, roles and permissions.</li><li>Developed 8–10 complex data-heavy REST APIs per sprint consumed by React and Angular applications.</li><li>Worked on bidirectional NetSuite synchronization for financial and inventory data.</li><li>Handled approximately 8–10 production issues per 10-day sprint through debugging and coordination with QA/support.</li><li>Mentored 8–10 junior developers and participated in code reviews and Agile delivery.</li></ul></div></article>
+     <article class="role reveal"><div class="role-date">APR 2019 — JUL 2022<br>AHMEDABAD</div><div><h3>Software Engineer</h3><div class="company">RADICALLOOP TECHNOLABS</div><ul><li>Independently built an e-commerce platform with cart, wishlist, infinite scroll, administration, analytics and reporting.</li><li>Built REST API layers and MySQL database structures.</li><li>Worked on a telecom customer portal using PHP/Laravel/MySQL and ReactJS.</li><li>Built content creator backend functionality using Laravel/PHP with a Next.js frontend and social integrations.</li><li>Worked with stakeholders on requirements and debugging and mentored new joiners.</li></ul></div></article>
+    </div>
+   </section>
+
+   <section id="projects">
+    <div class="section-head reveal"><div><div class="section-label">04 / SELECTED PROJECTS</div><h2>Case<br>studies.</h2></div><p class="intro">Expanded project details from the resume, organized around product scope, backend responsibility, integrations and technology.</p></div>
+    <div class="case-list">
+     <article class="case reveal">
+      <div class="case-top"><div class="case-no">01</div><h3>Distribution Management System</h3><div class="case-type">ENTERPRISE / DISTRIBUTION</div></div>
+      <div class="case-content"><p>Enterprise-level distribution platform covering sales, purchasing, distribution, invoicing and reporting. The system included Navigator and Cockpit modules for operational and administrative workflows, client management and permissions. Worked as part of a 50+ engineer team and contributed to backend APIs and business-system integrations.</p>
+       <div class="detail-grid"><div class="detail"><b>ROLE</b><span>Backend / PHP Developer</span></div><div class="detail"><b>SCALE</b><span>50+ engineer team</span></div><div class="detail"><b>INTEGRATION</b><span>Bidirectional NetSuite sync</span></div><div class="detail"><b>API</b><span>Data-heavy REST APIs</span></div></div>
+       <div class="tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">Symfony</span><span class="tag">MySQL</span><span class="tag">Angular</span><span class="tag">Node.js</span><span class="tag">NetSuite</span></div>
+      </div>
+     </article>
+     <article class="case reveal">
+      <div class="case-top"><div class="case-no">02</div><h3>Content Creator Platform</h3><div class="case-type">CREATOR / SOCIAL</div></div>
+      <div class="case-content"><p>Platform for creator and client management with a Laravel/PHP backend and React.js frontend. The project included API integration with social platforms and workflows around creator/client data and content operations.</p>
+       <div class="detail-grid"><div class="detail"><b>ROLE</b><span>Backend Developer</span></div><div class="detail"><b>TEAM</b><span>10-person team</span></div><div class="detail"><b>SOCIAL</b><span>Instagram / Twitter</span></div><div class="detail"><b>FRONTEND</b><span>React.js</span></div></div>
+       <div class="tags"><span class="tag">Laravel</span><span class="tag">PHP</span><span class="tag">React.js</span><span class="tag">Next.js</span><span class="tag">REST API</span></div>
+      </div>
+     </article>
+     <article class="case reveal">
+      <div class="case-top"><div class="case-no">03</div><h3>Network Service Provider Customer Portal</h3><div class="case-type">TELECOM / SELF-SERVICE</div></div>
+      <div class="case-content"><p>Customer-facing telecom portal providing service and plan information and self-service workflows. Backend development was handled with PHP/Laravel/MySQL and integrated with a ReactJS frontend.</p>
+       <div class="detail-grid"><div class="detail"><b>ROLE</b><span>Backend Developer</span></div><div class="detail"><b>TEAM</b><span>10-person team</span></div><div class="detail"><b>DOMAIN</b><span>Telecom services</span></div><div class="detail"><b>FRONTEND</b><span>ReactJS</span></div></div>
+       <div class="tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">ReactJS</span></div>
+      </div>
+     </article>
+     <article class="case reveal">
+      <div class="case-top"><div class="case-no">04</div><h3>E-Commerce Platform</h3><div class="case-type">E-COMMERCE / WEB + MOBILE</div></div>
+      <div class="case-content"><p>End-to-end e-commerce platform independently built around shopping and administration workflows. Features included cart, wishlist, infinite scrolling, admin functionality, analytics, purchase reports and REST APIs supporting web and mobile use cases, with a production-ready MySQL database structure.</p>
+       <div class="detail-grid"><div class="detail"><b>DELIVERY</b><span>Independent end-to-end</span></div><div class="detail"><b>FEATURES</b><span>Cart / wishlist / admin</span></div><div class="detail"><b>REPORTING</b><span>Analytics / purchase reports</span></div><div class="detail"><b>DATA</b><span>Production-ready schema</span></div></div>
+       <div class="tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">REST API</span></div>
+      </div>
+     </article>
+    </div>
+   </section>
+
+   <section id="skills">
+    <div class="section-head reveal"><div><div class="section-label">05 / TECH STACK</div><h2>Tools in<br>the toolbox.</h2></div><p class="intro">Technologies and engineering practices listed across the resume.</p></div>
+    <div class="skills">
+     <div class="skill reveal"><h3>BACKEND</h3><div class="chips"><span class="chip">PHP 8</span><span class="chip">Laravel</span><span class="chip">Symfony</span><span class="chip">OOP</span><span class="chip">MVC</span><span class="chip">REST APIs</span></div></div>
+     <div class="skill reveal"><h3>DATABASE</h3><div class="chips"><span class="chip">MySQL</span><span class="chip">MongoDB</span><span class="chip">Query Optimization</span></div></div>
+     <div class="skill reveal"><h3>FRONTEND</h3><div class="chips"><span class="chip">JavaScript</span><span class="chip">React.js</span><span class="chip">Angular</span><span class="chip">Next.js</span><span class="chip">jQuery</span><span class="chip">AJAX</span></div></div>
+     <div class="skill reveal"><h3>AWS</h3><div class="chips"><span class="chip">Lambda</span><span class="chip">API Gateway</span><span class="chip">SQS</span><span class="chip">SNS</span><span class="chip">S3</span><span class="chip">CloudWatch</span></div></div>
+     <div class="skill reveal"><h3>ENGINEERING</h3><div class="chips"><span class="chip">Design Patterns</span><span class="chip">SOLID</span><span class="chip">Unit Testing</span><span class="chip">Microservices</span><span class="chip">API Integration</span></div></div>
+     <div class="skill reveal"><h3>TOOLS</h3><div class="chips"><span class="chip">Git</span><span class="chip">Postman</span><span class="chip">APIDog</span><span class="chip">JIRA</span><span class="chip">NetSuite</span></div></div>
+     <div class="skill reveal"><h3>DELIVERY</h3><div class="chips"><span class="chip">Code Review</span><span class="chip">Mentorship</span><span class="chip">Requirements Translation</span><span class="chip">Agile/Scrum</span></div></div>
+     <div class="skill reveal"><h3>OTHER</h3><div class="chips"><span class="chip">Node.js · Working familiarity</span></div></div>
+    </div>
+   </section>
+
+   <section id="workflow">
+    <div class="section-head reveal"><div><div class="section-label">06 / WORKFLOW</div><h2>From requirement<br>to production.</h2></div><p class="intro">A simple engineering flow matching the way the resume describes end-to-end delivery.</p></div>
+    <div class="flow">
+     <div class="reveal"><b>01 / UNDERSTAND</b><p>Translate requirements into technical behavior, data flows and API needs.</p></div>
+     <div class="reveal"><b>02 / DESIGN</b><p>Plan backend logic, database structures, integrations and error handling.</p></div>
+     <div class="reveal"><b>03 / BUILD</b><p>Implement PHP/Laravel/Symfony functionality, APIs and third-party integrations.</p></div>
+     <div class="reveal"><b>04 / SHIP</b><p>Test, review, troubleshoot, optimize and support production delivery.</p></div>
+    </div>
+   </section>
+
+   <section id="education">
+    <div class="section-head reveal"><div><div class="section-label">07 / BACKGROUND</div><h2>Education &<br>certifications.</h2></div><p class="intro">Academic and certification details from the resume.</p></div>
+    <div class="two">
+     <div class="edu reveal"><div class="year">2018</div><h3>Bachelor of Engineering</h3><p>Computer Engineering · Gujarat Technological University (GTU), Gujarat</p></div>
+     <div class="edu reveal"><div class="year">2015</div><h3>Diploma</h3><p>Computer Engineering · Gujarat Technological University (GTU), Gujarat</p></div>
+     <div class="cert reveal"><div class="year">SEP 2025</div><h3>REST API Design, Development & Management</h3><p>Certification</p></div>
+     <div class="cert reveal"><div class="year">DEC 2025</div><h3>Snowflake: The Complete Masterclass</h3><p>Certification</p></div>
+     <div class="cert reveal"><div class="year">SEP 2025</div><h3>Complete Angular Course</h3><p>Certification</p></div>
+     <div class="cert reveal"><div class="year">LANGUAGES</div><h3>Gujarati · Hindi · English</h3><p>Gujarati native · Hindi fluent · English professional working proficiency</p></div>
+    </div>
+   </section>
+
+   <section id="contact">
+    <div class="contact reveal">
+     <div class="section-label">08 / CONTACT</div>
+     <h2>Ready for the next<br><span style="color:var(--green)">backend challenge?</span></h2>
+     <p>Open to Senior PHP Developer, Senior Laravel Developer, Senior Software Engineer and Backend Engineer opportunities, with a preference for remote work.</p>
+     <div class="actions">
+      <a class="btn primary" href="mailto:kishanrajyaguru88@gmail.com">EMAIL ME ↗</a>
+      <a class="btn" href="https://wa.me/918238914003?text=Hi%20Kishan%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20job%20opportunity%20with%20you." target="_blank">WHATSAPP ↗</a>
+      <a class="btn blue" href="https://www.linkedin.com/in/kishan-rajyaguru-246005114" target="_blank">LINKEDIN ↗</a>
+      <a class="btn" href="https://drive.google.com/file/d/1wHIQb9zdgtZPsKjp7t7ixXYEaKMEq6L0/view?usp=drive_link" target="_blank">DOWNLOAD RESUME ↓</a>
+     </div>
+     <div class="contact-links"><a href="mailto:kishanrajyaguru88@gmail.com">kishanrajyaguru88@gmail.com</a><a href="tel:+918238914003">+91 82389 14003</a><a href="https://www.linkedin.com/in/kishan-rajyaguru-246005114" target="_blank">linkedin.com/in/kishan-rajyaguru-246005114</a></div>
+    </div>
+    <footer><span>© 2026 KISHAN RAJYAGURU</span><span>PHP · LARAVEL · SYMFONY · MYSQL · AWS · REST APIs</span></footer>
+   </section>
+  </main>
+ </div>
+</div>
+<script>
+(function(){
+ const header=document.querySelector('.topbar');
+ const progress=document.getElementById('progress');
+ const nav=[...document.querySelectorAll('.side-nav a')];
+ const mobileNav=[...document.querySelectorAll('.mobile-menu-panel a')];
+ const allNav=[...nav,...mobileNav];
+ const targets=nav.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
+   allNav.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));
+ }}),{rootMargin:'-38% 0px -50% 0px',threshold:0});
+ targets.forEach(t=>io.observe(t));
+ const reveal=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.08});
+ document.querySelectorAll('.reveal').forEach(e=>reveal.observe(e));
+ addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max?scrollY/max*100:0)+'%'},{passive:true});
+})();
+
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+const topbar = document.querySelector('.topbar');
+
+if (mobileMenuBtn && mobileMenuPanel) {
+  mobileMenuBtn.addEventListener('click', function () {
+    const isOpen = topbar.classList.toggle('mobile-open');
+    mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+    mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+  });
+
+  mobileMenuPanel.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      mobileMenuPanel.querySelectorAll('a').forEach(function (item) { item.classList.remove('active'); });
+      document.querySelectorAll('.side-nav a').forEach(function (item) { item.classList.remove('active'); });
+      link.classList.add('active');
+      const targetId = link.getAttribute('href');
+      const matchingSide = document.querySelector('.side-nav a[href="' + targetId + '"]');
+      if (matchingSide) matchingSide.classList.add('active');
+      topbar.classList.remove('mobile-open');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenuBtn.setAttribute('aria-label', 'Open navigation');
+    });
+  });
+
+  document.addEventListener('click', function (event) {
+    if (window.innerWidth <= 950 &&
+        topbar.classList.contains('mobile-open') &&
+        !topbar.contains(event.target)) {
+      topbar.classList.remove('mobile-open');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      topbar.classList.remove('mobile-open');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 950) {
+      topbar.classList.remove('mobile-open');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
+</script>
+</body>
+</html>
